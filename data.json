@@ -1,0 +1,112 @@
+[
+  {
+    "STATE": "Andhra Pradesh",
+    "District": "Srikakulam",
+    "NetAvailability": 111382,
+    "TotalDraft": 42795,
+    "StageDevelopment": 38,
+    "ProjectedDemand": 17584,
+    "Y2022": 123000,
+    "Y2023": 128500,
+    "Y2024": 122800
+  },
+  {
+    "STATE": "Andhra Pradesh",
+    "District": "Vizianagaram",
+    "NetAvailability": 91598,
+    "TotalDraft": 17812,
+    "StageDevelopment": 19,
+    "ProjectedDemand": 6116,
+    "Y2022": 90000,
+    "Y2023": 94000,
+    "Y2024": 88000
+  },
+  {
+    "STATE": "Karnataka",
+    "District": "Bangalore Urban",
+    "NetAvailability": 75000,
+    "TotalDraft": 25000,
+    "StageDevelopment": 33,
+    "ProjectedDemand": 12000,
+    "Y2022": 76000,
+    "Y2023": 80500,
+    "Y2024": 78000
+  },
+  {
+    "STATE": "Karnataka",
+    "District": "Mysore",
+    "NetAvailability": 68000,
+    "TotalDraft": 20000,
+    "StageDevelopment": 29,
+    "ProjectedDemand": 10000,
+    "Y2022": 69000,
+    "Y2023": 72000,
+    "Y2024": 73500
+  },
+  {
+    "STATE": "Maharashtra",
+    "District": "Pune",
+    "NetAvailability": 98000,
+    "TotalDraft": 40000,
+    "StageDevelopment": 41,
+    "ProjectedDemand": 15000,
+    "Y2022": 99000,
+    "Y2023": 102000,
+    "Y2024": 97000
+  },
+  {
+    "STATE": "Maharashtra",
+    "District": "Nagpur",
+    "NetAvailability": 87000,
+    "TotalDraft": 35000,
+    "StageDevelopment": 35,
+    "ProjectedDemand": 12000,
+    "Y2022": 88000,
+    "Y2023": 89500,
+    "Y2024": 91000
+  },
+  {
+    "STATE": "Rajasthan",
+    "District": "Jaipur",
+    "NetAvailability": 65000,
+    "TotalDraft": 25000,
+    "StageDevelopment": 38,
+    "ProjectedDemand": 8000,
+    "Y2022": 66000,
+    "Y2023": 62500,
+    "Y2024": 68500
+  },
+  {
+    "STATE": "Rajasthan",
+    "District": "Jodhpur",
+    "NetAvailability": 58000,
+    "TotalDraft": 22000,
+    "StageDevelopment": 38,
+    "ProjectedDemand": 7000,
+    "Y2022": 59000,
+    "Y2023": 60500,
+    "Y2024": 58000
+  },
+  {
+    "STATE": "Tamil Nadu",
+    "District": "Chennai",
+    "NetAvailability": 72000,
+    "TotalDraft": 30000,
+    "StageDevelopment": 41,
+    "ProjectedDemand": 11000,
+    "Y2022": 73000,
+    "Y2023": 75500,
+    "Y2024": 74000
+  },
+  {
+    "STATE": "Tamil Nadu",
+    "District": "Coimbatore",
+    "NetAvailability": 68000,
+    "TotalDraft": 28000,
+    "StageDevelopment": 35,
+    "ProjectedDemand": 9000,
+    "Y2022": 69000,
+    "Y2023": 67500,
+    "Y2024": 71000
+  }
+]

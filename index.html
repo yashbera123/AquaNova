@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Groundwater Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container py-3">
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark mb-3">
+      <div class="container-fluid px-2">
+        <a class="navbar-brand ps-2">🌊 Groundwater Portal</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navCollapse">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" onclick="navigate('homeSection', this)">Home</a></li>
+            <li class="nav-item"><a class="nav-link" onclick="navigate('predictionSection', this)">Predictions</a></li>
+            <li class="nav-item"><a class="nav-link" onclick="navigate('insightsSection', this)">Insights</a></li>
+            <li class="nav-item"><a class="nav-link" onclick="navigate('aboutSection', this)">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <section id="homeSection" class="active">
+      <header class="section-head">
+        <h2 style="margin:0;">Welcome</h2>
+
+      <div class="row g-3 align-items-end">
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <label class="form-label">Select User Type</label>
+            <select id="userTypeSelect" class="form-select">
+              <option value="">--Choose User--</option>
+              <option value="policymaker">Policymaker</option>
+              <option value="researcher">Researcher</option>
+              <option value="planner">Planner</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <label class="form-label">Select State</label>
+          <select id="stateSelect" class="form-select"><option value="">--Choose State--</option></select>
+        </div>
+        <div class="col-md-5">
+          <label class="form-label">Select District</label>
+          <select id="districtSelect" class="form-select"><option value="">--Choose District--</option></select>
+        </div>
+        <div class="col-md-2 text-end">
+          <button id="goToPrediction" class="btn btn-primary w-100" disabled>Show Predictions</button>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-md-8">
+          <div class="card p-3">
+            <h5 style="margin:0 0 8px 0;">How to use</h5>
+            <p class="muted mb-0">Select a State and District then click <b>Show Predictions</b>. The app will present key metrics and a forecast for the next few years.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-3 text-center">
+            <h6 class="mb-2">Quick Tip</h6>
+            <p class="muted mb-0">If you navigate directly to Predictions without selection, a reminder will pop up.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="predictionSection" class="hidden">
+      <header class="section-head" style="background:#6a1b9a;">
+        <h2 style="margin:0;">📊 Predictions</h2>
+        <p id="districtTitle" class="muted" style="margin:6px 0 0;"></p>
+      </header>
+
+      <div id="planBanner" class="alert alert-info text-center mt-2 mb-3" style="display:none;">
+        Active Plan: <span id="activePlanName">Free</span>
+      </div>
+
+      <div id="metrics" class="row g-3 mt-3"></div>
+
+      <div class="card mt-3 p-3">
+        <canvas id="districtChart"></canvas>
+      </div>
+
+      <div class="d-flex justify-content-between mt-3">
+        <button id="backBtn" class="btn btn-outline-secondary">⬅ Back</button>
+        <button id="recalcBtn" class="btn btn-outline-primary">Re-run Prediction</button>
+      </div>
+    </section>
+
+
+
+    <section id="insightsSection" class="hidden">
+      <header class="section-head" style="background:#ef6c00;">
+        <div id="userTypeBanner" class="alert text-center mt-2 mb-3" style="display:none; opacity:0; transition: opacity 0.3s;">
+          User Type: <span id="activeUserType"></span>
+        </div>
+        <h2 style="margin:0;">💡 Insights</h2>
+        <p id="insightsSubtitle" style="margin:6px 0 0;"></p>
+      </header>
+    
+      <div class="row mt-3 g-3">
+        <div class="col-12">
+          <div class="card p-3">
+            <h5>Insights</h5>
+            <div id="insightsContent"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="aboutSection" class="hidden">
+      <header class="section-head" style="background:#283593;">
+        <h2 style="margin:0;">ℹ️ About</h2>
+      </header>
+      <div class="card p-3 mt-3">
+        <p>
+          <strong>Tech:</strong> HTML, Bootstrap, vanilla JavaScript, Chart.js. <br/>
+          <strong>Prediction:</strong> Linear regression fitted on the last 3 years, extended to multiple future years. Small, controlled noise is added to make predictions appear realistic.<br/>
+          <strong>Data:</strong> Client-side JSON (keeps demo lightweight). In production you would plug a secure API (e.g., CGWB / DWLR) and a proper model.
+        </p>
+      </div>
+    </section>
+
+
+<section id="pricingSection" class="hidden">
+  <header class="section-head" style="background:#00897b;">
+    <h2 style="margin:0;">💰 Pricing Plans</h2>
+  </header>
+
+  <div class="row mt-3 g-3">
+
+    <div class="col-md-4">
+      <div class="card p-3 text-center">
+        <h5>Free</h5>
+        <p class="muted mb-2">Basic access to historical data and limited predictions</p>
+        <p><strong>₹0 / month</strong></p>
+        <ul class="list-unstyled">
+          <li>✅ View historical metrics</li>
+          <li>❌ Full predictions for future years</li>
+          <li>❌ Insights & alerts</li>
+        </ul>
+        <button class="btn btn-outline-primary w-100">Select</button>
+      </div>
+    </div>
+
+
+    <div class="col-md-4">
+      <div class="card p-3 text-center">
+        <h5>Pro</h5>
+        <p class="muted mb-2">Access full predictions and insights</p>
+        <p><strong>₹299.99 / month</strong></p>
+        <ul class="list-unstyled">
+          <li>✅ Historical metrics</li>
+          <li>✅ Predictions up to 5 future years</li>
+          <li>✅ Automated insights & alerts</li>
+        </ul>
+        <button class="btn btn-primary w-100">Select</button>
+      </div>
+    </div>
+
+
+    <div class="col-md-4">
+      <div class="card p-3 text-center">
+        <h5>Enterprise</h5>
+        <p class="muted mb-2">Custom access and priority features</p>
+        <p><strong>Contact us</strong></p>
+        <ul class="list-unstyled">
+          <li>✅ All Pro features</li>
+          <li>✅ Custom datasets & analysis</li>
+          <li>✅ Priority support & API access</li>
+        </ul>
+        <button class="btn btn-outline-success w-100">Contact</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div id="alertArea" class="top-alert"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
