@@ -31,13 +31,13 @@ Key Features
   - No backend required; all functionality runs in the browser using sample datasets.
 
 How It Works
-	- Users select State, District, and User Type on the Home screen.
-	- Predictions Section displays:
-	  - Metrics cards for key groundwater indicators.
-	  - Historical and predicted groundwater trends (dynamic chart).
-	  - Active subscription plan affecting prediction horizon.
-	  - Insights Section provides user-specific recommendations based on simulated metrics.
-	  - Users can switch subscription tiers to see changes in prediction availability and metrics.
+- Users select State, District, and User Type on the Home screen.
+- Predictions Section displays:
+- Metrics cards for key groundwater indicators.
+- Historical and predicted groundwater trends (dynamic chart).
+- Active subscription plan affecting prediction horizon.
+- Insights Section provides user-specific recommendations based on simulated metrics.
+- Users can switch subscription tiers to see changes in prediction availability and metrics.
 
 Note: This is a working prototype using sample datasets only. No official DWLR data has been used to train the predictive model. All predictions and insights are simulated to demonstrate functionality, not actual groundwater conditions.
 
